@@ -1,0 +1,25 @@
+path: dataset_split
+
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: hand
+  1: p1
+  2: p10
+  3: p11
+  4: p12
+  5: p13
+  6: p14
+  7: p15
+  8: p16
+  9: p17
+  10: p2
+  11: p3 
+  12: p4  
+  13: p5
+  14: p6
+  15: p7
+  16: p8
+  17: p9

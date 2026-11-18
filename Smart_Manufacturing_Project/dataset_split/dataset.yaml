@@ -1,0 +1,24 @@
+path: dataset_split
+
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: p1
+  1: p10
+  2: p11
+  3: p12
+  4: p13
+  5: p14
+  6: p15
+  7: p16
+  8: p17
+  9: p2
+  10: p3
+  11: p4  
+  12: p5
+  13: p6
+  14: p7
+  15: p8
+  16: p9

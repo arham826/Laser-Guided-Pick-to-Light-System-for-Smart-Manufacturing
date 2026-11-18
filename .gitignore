@@ -1,6 +1,7 @@
-# Image datasets (too large for GitHub)
-dataset_raw/
-dataset_split/
+# Image datasets (too large for GitHub) - keep only the YAML configs
+**/dataset_raw/
+**/dataset_split/*
+!**/dataset_split/*.yaml
 
 # Python
 __pycache__/
