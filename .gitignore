@@ -1,0 +1,10 @@
+# Image datasets (too large for GitHub)
+dataset_raw/
+dataset_split/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
