@@ -3,6 +3,10 @@ import numpy as np
 import serial
 import time
 from ultralytics import YOLO
+from pathlib import Path
+
+# Repository root: this file lives in <repo>/<project>/scripts/
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 
 ########################################
@@ -12,8 +16,8 @@ from ultralytics import YOLO
 COM_PORT = "COM3"
 CAMERA_INDEX = 1
 
-MODEL_PATH = r"C:\Smart_Manufacturing_Project\runs\detect\runs\parts_detection9\weights\best.pt"
-CALIBRATION_PATH = r"C:\Smart_Manufacturing_Project\laser_calibration.npy"
+MODEL_PATH = str(REPO_ROOT / "Smart_Manufacturing_Project" / "runs" / "detect" / "runs" / "parts_detection9" / "weights" / "best.pt")
+CALIBRATION_PATH = str(REPO_ROOT / "Smart_Manufacturing_Project" / "laser_calibration.npy")
 
 CENTER_SERVO_X = 90
 CENTER_SERVO_Y = 85

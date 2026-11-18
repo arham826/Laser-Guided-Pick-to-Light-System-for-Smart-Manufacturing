@@ -1,12 +1,16 @@
 from ultralytics import YOLO
+from pathlib import Path
+
+# Project folder: this file lives in <project>/scripts/
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 
 
 def train():
 
-    model = YOLO("yolov8n.pt")
+    model = YOLO(str(PROJECT_DIR / "yolov8n.pt"))
 
     model.train(
-        data="dataset_split/dataset.yaml",
+        data=str(PROJECT_DIR / "dataset_split" / "dataset.yaml"),
         epochs=60,
         imgsz=640,
         batch=4,          # safer for GTX1650 memory
@@ -21,7 +25,7 @@ def train():
         fliplr=0.5,
         mosaic=0.5,
         mixup=0.0,
-        project="runs",
+        project=str(PROJECT_DIR / "runs" / "detect" / "runs"),
         name="parts_detection"
     )
 

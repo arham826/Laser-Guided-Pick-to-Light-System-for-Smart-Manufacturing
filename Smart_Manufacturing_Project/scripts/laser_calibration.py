@@ -2,6 +2,10 @@ import cv2
 import numpy as np
 import serial
 import time
+from pathlib import Path
+
+# Project folder: this file lives in <project>/scripts/
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 
 
 ########################################
@@ -247,7 +251,7 @@ print("\nFinal calibration results:")
 print("scaleX =",scaleX)
 print("scaleY =",scaleY)
 
-np.save("laser_calibration.npy",[scaleX,scaleY])
+np.save(str(PROJECT_DIR / "laser_calibration.npy"),[scaleX,scaleY])
 
 print("\nCalibration saved successfully")
 

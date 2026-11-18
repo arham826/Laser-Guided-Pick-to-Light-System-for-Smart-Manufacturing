@@ -1,7 +1,11 @@
 from ultralytics import YOLO
 import cv2
+from pathlib import Path
 
-MODEL_PATH = r"C:\Smart_Manufacturing_Project2\runs\detect\runs\parts_detection\weights\best.pt"
+# Repository root: this file lives in <repo>/<project>/scripts/
+REPO_ROOT = Path(__file__).resolve().parents[2]
+
+MODEL_PATH = str(REPO_ROOT / "Smart_Manufacturing_Project2" / "runs" / "detect" / "runs" / "parts_detection" / "weights" / "best.pt")
 
 model = YOLO(MODEL_PATH)
 

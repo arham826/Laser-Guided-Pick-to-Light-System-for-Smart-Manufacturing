@@ -1,11 +1,15 @@
 import cv2
 import time
 from ultralytics import YOLO
+from pathlib import Path
+
+# Repository root: this file lives in <repo>/<project>/scripts/
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 
 # ================= SETTINGS =================
 
-MODEL_PATH = "C:\\Smart_Manufacturing_Project\\runs\\detect\\runs\\parts_detection\\weights\\best.pt"
+MODEL_PATH = str(REPO_ROOT / "Smart_Manufacturing_Project" / "runs" / "detect" / "runs" / "parts_detection" / "weights" / "best.pt")
 
 CAMERA_INDEX = 1
 CONF_THRESHOLD = 0.4

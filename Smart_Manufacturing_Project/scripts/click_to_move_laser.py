@@ -2,6 +2,10 @@ import cv2
 import numpy as np
 import serial
 import time
+from pathlib import Path
+
+# Project folder: this file lives in <project>/scripts/
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 
 
 ########################################
@@ -12,7 +16,7 @@ PORT = "COM3"
 BAUD = 115200
 CAMERA_INDEX = 0
 
-MAPPING_FILE = "mapping_model.npy"
+MAPPING_FILE = str(PROJECT_DIR / "mapping_model.npy")
 
 
 # Servo limits (same workspace used in calibration)

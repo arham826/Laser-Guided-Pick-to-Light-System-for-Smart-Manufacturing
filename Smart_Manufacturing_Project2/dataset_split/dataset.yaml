@@ -1,4 +1,3 @@
-path: dataset_split
 
 train: images/train
 val: images/val

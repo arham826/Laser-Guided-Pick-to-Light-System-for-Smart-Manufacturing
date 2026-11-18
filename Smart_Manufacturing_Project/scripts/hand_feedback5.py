@@ -3,12 +3,16 @@ import cv2
 import serial
 import time
 import numpy as np
+from pathlib import Path
+
+# Repository root: this file lives in <repo>/<project>/scripts/
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 
 # ================= SETTINGS =================
 
-MODEL_PATH = r"C:\Smart_Manufacturing_Project2\runs\detect\runs\parts_detection\weights\best.pt"
-MAPPING_FILE = r"C:\Smart_Manufacturing_Project\mapping_model.npy"
+MODEL_PATH = str(REPO_ROOT / "Smart_Manufacturing_Project2" / "runs" / "detect" / "runs" / "parts_detection" / "weights" / "best.pt")
+MAPPING_FILE = str(REPO_ROOT / "Smart_Manufacturing_Project" / "mapping_model.npy")
 PORT = "COM3"
 
 CONF_THRESHOLD = 0.20

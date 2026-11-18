@@ -3,19 +3,23 @@ import cv2
 import numpy as np
 import serial
 import time
+from pathlib import Path
+
+# Repository root: this file lives in <repo>/<project>/scripts/
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 ##########################################
 # LOAD YOLO MODEL
 ##########################################
 
-MODEL_PATH = r"C:\Smart_Manufacturing_Project2\runs\detect\runs\parts_detection\weights\best.pt"
+MODEL_PATH = str(REPO_ROOT / "Smart_Manufacturing_Project2" / "runs" / "detect" / "runs" / "parts_detection" / "weights" / "best.pt")
 model = YOLO(MODEL_PATH)
 
 ##########################################
 # LOAD 1D CALIBRATION FILE
 ##########################################
 
-mapping = np.load(r"C:\Smart_Manufacturing_Project\mapping_model.npy")
+mapping = np.load(str(REPO_ROOT / "Smart_Manufacturing_Project" / "mapping_model.npy"))
 
 ax = mapping[0]
 bx = mapping[1]

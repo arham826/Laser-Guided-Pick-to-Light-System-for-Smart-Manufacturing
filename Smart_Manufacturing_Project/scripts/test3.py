@@ -3,14 +3,18 @@ import numpy as np
 import serial
 import time
 from ultralytics import YOLO
+from pathlib import Path
+
+# Repository root: this file lives in <repo>/<project>/scripts/
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 
 # ===== SETTINGS =====
 
-MODEL_PATH = "C:\\Smart_Manufacturing_Project\\runs\\detect\\runs\\parts_detection\\weights\\best.pt"
+MODEL_PATH = str(REPO_ROOT / "Smart_Manufacturing_Project" / "runs" / "detect" / "runs" / "parts_detection" / "weights" / "best.pt")
 PORT = "COM3"
 
-MAPPING_FILE = "C:\\Smart_Manufacturing_Project\\mapping_model.npy"
+MAPPING_FILE = str(REPO_ROOT / "Smart_Manufacturing_Project" / "mapping_model.npy")
 
 
 arduino = serial.Serial(PORT, 115200)

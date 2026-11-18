@@ -215,7 +215,7 @@ Run calibration again whenever the camera or laser mount moves. You can check th
 The final version is **`Smart_Manufacturing_Project/scripts/hand_feedback8.py`**.
 
 1. Connect the Arduino and the camera.
-2. Edit the settings at the top of the script if needed (model path, mapping file, COM port, camera index).
+2. Edit the settings at the top of the script if needed (COM port, camera index, thresholds). The model and calibration paths are found automatically.
 3. Edit `sequence` to set your assembly's pick order.
 4. Run:
 
@@ -290,12 +290,20 @@ void loop() {
 
 ## Configuration
 
-Most scripts use **absolute Windows paths** such as `C:\Smart_Manufacturing_Project\...`. Before running a script, update these constants at the top of the file to match your setup:
+**File paths are relative to each script's own location**, so the repository works from any folder or drive, and you can run a script from any working directory. Each script builds its paths from one of these:
+
+```python
+REPO_ROOT   = Path(__file__).resolve().parents[2]   # the repository root
+PROJECT_DIR = Path(__file__).resolve().parents[1]   # the script's project folder
+```
+
+For example, `hand_feedback8.py` loads
+`REPO_ROOT / "Smart_Manufacturing_Project2" / "runs" / "detect" / "runs" / "parts_detection" / "weights" / "best.pt"`. The calibration scripts always save their `.npy` files in `Smart_Manufacturing_Project/`, and `train.py` writes to `<project>/runs/detect/runs/`.
+
+You may still need to change these hardware settings at the top of a script:
 
 | Constant | Example |
 |---|---|
-| `MODEL_PATH` | `Smart_Manufacturing_Project2/runs/detect/runs/parts_detection/weights/best.pt` |
-| `MAPPING_FILE` | `Smart_Manufacturing_Project/mapping_model.npy` |
 | `PORT` / `COM_PORT` | `COM3` on Windows, `/dev/ttyUSB0` or `/dev/ttyACM0` on Linux |
 | `CAMERA_INDEX` | `0` or `1` |
 | `PART_CONF_THRESHOLD`, `HAND_CONF_THRESHOLD` | `0.25`, `0.50` |

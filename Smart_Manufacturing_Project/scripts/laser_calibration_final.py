@@ -2,6 +2,10 @@ import cv2
 import numpy as np
 import serial
 import time
+from pathlib import Path
+
+# Project folder: this file lives in <project>/scripts/
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 
 arduino = serial.Serial('COM3',115200)
 time.sleep(2)
@@ -110,6 +114,6 @@ A=np.vstack([pixelY,np.ones(len(pixelY))]).T
 my,by=np.linalg.lstsq(A,servoY,rcond=None)[0]
 
 
-np.save("mapping_model.npy",[mx,bx,my,by])
+np.save(str(PROJECT_DIR / "mapping_model.npy"),[mx,bx,my,by])
 
 print("\nCalibration saved successfully ✅")
