@@ -1,4 +1,4 @@
-# Smart Manufacturing Project
+# Laser-Guided Pick-to-Light System for Smart Manufacturing
 
 YOLOv8-based parts detection with laser-pointer guidance and hand-feedback for a smart manufacturing workstation.
 
